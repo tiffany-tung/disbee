@@ -9,6 +9,7 @@ const RaisedButton = MUI.RaisedButton
 const Paper = MUI.Paper;
 const GridList = MUI.GridList;
 const GridTile = MUI.GridTile;
+
 const paperStyle = {
     backgroundColor: "#00bcd4",
     height: 64,
@@ -22,36 +23,41 @@ const paperStyle = {
 import * as actions from '../actions/actions'
 
 import Sample from 'components/Sample'
-    
+import ReactDOM from 'react-dom'
+import Post from '../post.es6.js';
+
+const Dialog = MUI.Dialog; 
+
 class App extends Component {
     constructor(props) {
         super();
         this.state = {
             isMobile: window.innerWidth < 800
         }
-        this.uploadMe = this.uploadMe.bind(this);
         this.createImageNodes = this.createImageNodes.bind(this);
+        this.handleOnClick = this.handleOnClick.bind(this);
         this.render = this.render.bind(this);
     }
 
-    handleOnClick() {
-        console.log("wasdfajiowjrfoaij");
+    handleOnClick(result, counter) {
+        ReactDOM.render(<Post {...result} count={counter} />, document.getElementById('modal'))
     }
 
     // Get all the current posts and render images based off of them
     createImageNodes() {
+        let counter = 0;
         let things = this.props.post.map((result) => {
-            return (<GridTile title={result.caption + " - " + result.user}><Image src={result.image_url} /></GridTile>)
+            counter++;
+            return (<GridTile onClick={() => this.handleOnClick(result, counter)} 
+                        key={counter}
+                        title={result.caption + " - " + result.user} 
+                        subtitle={"Top tag: " + result.tags[0] + " | Comments: " + result.comments.length}>
+                        <Image src={result.image_url} />
+                    </GridTile>)
         })
        
         
         return things;
-    }
-
-    uploadMe() {
-        console.log(this.refs.hi.files)
-        // POST TO S3
-        // DO THE CLARIFI
     }
 
     render() {
@@ -67,7 +73,7 @@ class App extends Component {
                 <h2>The fuck is that?</h2>
             </Paper>
             
-            <GridList onClick={this.handleOnClick} cols={this.state.isMobile ? 1 : 3} cellHeight={400} >
+            <GridList cols={this.state.isMobile ? 1 : 3} cellHeight={400} >
                 {gridNodes}
             </GridList>
 

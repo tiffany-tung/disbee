@@ -9,7 +9,6 @@ let injectTapEventPlugin = require("react-tap-event-plugin");
 
 injectTapEventPlugin();
 
-//ReactDOM.render(<App img={'../test.png'} />, document.getElementById('container'));
-ReactDOM.render(<Root />, document.getElementById('header'));
+ReactDOM.render(<Root />, document.getElementById('container'));
 
 setUpRealtime();
