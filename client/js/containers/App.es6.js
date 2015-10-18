@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Immutable from 'immutable'
 
 import * as actions from '../actions/actions'
 
@@ -8,6 +9,8 @@ import Sample from 'components/Sample'
 
 class App extends Component {
     render() {
+
+        console.log(this.props);
         const { dispatch, ...other } = this.props;
 
         const boundActions = bindActionCreators(actions, dispatch);
@@ -24,7 +27,8 @@ App.propTypes = {};
 
 function mapStateToProps(state) {
     return {
-        blah : state.get('blah')
+        post    : state.get('posts').toJS(),
+        loading : state.get('loading')
     };
 }
 

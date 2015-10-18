@@ -1,9 +1,23 @@
-import { ADD_TODO } from '../constants/constants'
+import { ADD_POST, SET_POSTS, TOGGLE_LOADING } from '../constants/constants'
 import Immutable from 'immutable'
 
-export function addTodo(todo) {
+export function addPost(post) {
     return {
-        type: ADD_TODO,
+        type: ADD_POST,
+        post
+    }
+}
+
+export function setPosts(posts) {
+    return {
+        type: ADD_POST,
+        posts
+    }
+}
+
+export function toggleLoading() {
+    return {
+        type: TOGGLE_LOADING
     }
 }
 

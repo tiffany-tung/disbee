@@ -1,5 +1,6 @@
 {
-  "host": "localhost",
+  "host": "127.0.0.1",
   "port": 28015,
-  "db": "realtime"
+  "db": "realtime",
+  "authKey": "wWEaayBZs2hefg4IcIlp4bGItX1vOqCpqFaZwIFd8s"
 }
