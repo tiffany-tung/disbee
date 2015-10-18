@@ -1,5 +1,0 @@
-applications:
-- name: disbee
-  host: disbee-dubhacks
-  command: node server.js
-  memory: 128M
