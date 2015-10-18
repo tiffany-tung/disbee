@@ -32,19 +32,13 @@ const Dialog = MUI.Dialog;
 class App extends Component {
     constructor(props) {
         super();
-        this.state = {
-            isMobile: window.innerWidth < 800
-        }
         this.createImageNodes = this.createImageNodes.bind(this);
         this.handleOnClick = this.handleOnClick.bind(this);
-        this.render = this.render.bind(this);
     }
 
     handleOnClick(result, counter) {
-        console.log("??")
-        const { dispatch, ...other } = this.props;
+        const { dispatch } = this.props;
         const boundActions = bindActionCreators(actions, dispatch);
-        //ReactDOM.render(<Post {...result} count={counter} />, document.getElementById('modal'))
         boundActions.openPost(counter);
     }
 
@@ -52,17 +46,23 @@ class App extends Component {
     createImageNodes() {
 
         let things = this.props.post.map((result, index) => {
-            //counter++;
-            return (<GridTile onClick={() => this.handleOnClick(result, index)} 
+            let len = result.comments ? result.comments.length : 0
+            return (<GridTile onClick={() => this.handleOnClick(result, index)}
                         key={index}
                         title={result.caption + " - " + result.user} 
-                        subtitle={"Top tag: " + result.tags[0] + " | Comments: " + result.comments.length}>
-                        <Image src={result.image_url} />
+                        subtitle={"Top tag: " + result.tags[0] + " | Comments: " + len}>
+                        <Image src={result.url} />
                     </GridTile>)
         })
-       
         
         return things;
+    }
+
+    componentWillMount() {
+        const { dispatch } = this.props;
+        const boundActions = bindActionCreators(actions, dispatch);
+        boundActions.getPosts();
+        console.log('hererrrrr');
     }
 
     render() {
@@ -81,15 +81,15 @@ class App extends Component {
             }>
             </Overlay>
             : null;
-        
+
         return (    
         <div>
             <Paper style={paperStyle}>
-                <h2>The fuck is that?</h2>
+                <h2>The fuck is that??</h2>
             </Paper>
 
 
-            <GridList cols={this.state.isMobile ? 1 : 3} cellHeight={400} >
+            <GridList cols={window.innerWidth < 800 ? 1 : 3} cellHeight={400} >
                 {gridNodes}
             </GridList>
 

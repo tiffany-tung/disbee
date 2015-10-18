@@ -45,6 +45,7 @@ myRouter
         request
             .get(`https://api.clarifai.com/v1/tag/?url=${body.url}&access_token=swsia18bGbnWjUYYlSrMOD1jjaNMLu`)
             .end((err, res) => {
+                //console.log(res);
                 tags = res.body.results[0].result.tag.classes;
                 eventService.addPost(body.caption, tags, body.url, body.user, res.body.results[0].docid_str);
             })

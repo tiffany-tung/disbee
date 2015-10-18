@@ -7,6 +7,8 @@ export default function setupRealtime(store, actions) {
         //update ui
         console.log("new post");
         console.log(change);
+        store.dispatch(actions.addPost(change.new_val));
+
     });
 
     io.on('updated-post', (change) => {

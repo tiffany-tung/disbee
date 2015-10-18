@@ -1,5 +1,6 @@
 import { ADD_POST, SET_POSTS, TOGGLE_LOADING, OPEN_POST, CLOSE_POST } from '../constants/constants'
 import Immutable from 'immutable'
+import request from 'superagent'
 
 export function addPost(post) {
     return {
@@ -10,7 +11,7 @@ export function addPost(post) {
 
 export function setPosts(posts) {
     return {
-        type: ADD_POST,
+        type: SET_POSTS,
         posts
     }
 }
@@ -37,5 +38,16 @@ export function closePost() {
 export function thunk(blah) {
     return (dispatch, getState) => {
         //do stuff
+    }
+}
+
+export function getPosts() {
+    return (dispatch, getState) => {
+        request
+            .get(`/api`)
+            .end((err, res) => {
+                console.log(res.body);
+                dispatch(setPosts(res.body));
+            })
     }
 }

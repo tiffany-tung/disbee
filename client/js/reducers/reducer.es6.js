@@ -23,6 +23,7 @@ export default function app(state = initialState, action) {
             });
 
         case SET_POSTS:
+            console.log('here motherfucka')
             return state.set('posts', Immutable.List(action.posts))
 
         case TOGGLE_LOADING:
