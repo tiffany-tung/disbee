@@ -6,6 +6,7 @@ export default class CommentContainer extends React.Component {
 	}
 
 	render() {
+		console.log(this.props)
 		return <div>HAHA</div>
 	}
 }

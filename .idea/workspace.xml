@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2a1e315-f265-4467-9aba-548fe9307f81" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/Realtime.es6.js" afterPath="$PROJECT_DIR$/client/js/Realtime.es6.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/api/api.js" afterPath="$PROJECT_DIR$/server/api/api.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/config.json" afterPath="$PROJECT_DIR$/server/config.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/containers/App.es6.js" afterPath="$PROJECT_DIR$/client/js/containers/App.es6.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/comment-container.es6.js" afterPath="$PROJECT_DIR$/client/js/comment-container.es6.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/image.es6.js" afterPath="$PROJECT_DIR$/client/js/image.es6.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/index.es6.js" afterPath="$PROJECT_DIR$/client/js/index.es6.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uTrav.iml" afterPath="$PROJECT_DIR$/.idea/uTrav.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/index.html" afterPath="$PROJECT_DIR$/client/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/post.es6.js" afterPath="$PROJECT_DIR$/client/js/post.es6.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/reducers/reducer.es6.js" afterPath="$PROJECT_DIR$/client/js/reducers/reducer.es6.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/js/tags.es6.js" afterPath="$PROJECT_DIR$/client/js/tags.es6.js" />
     </list>
     <ignored path="uTrav.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,17 +77,17 @@
             <entry file="file://$PROJECT_DIR$/client/js/containers/App.es6.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+                  <caret line="89" column="38" selection-start-line="89" selection-start-column="38" selection-end-line="89" selection-end-column="38" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+          <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-12.037037">
-                  <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+                <state vertical-scroll-proportion="0.24287856">
+                  <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -102,10 +103,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/server.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3371758">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="67" selection-end-column="76" />
                   <folding />
                 </state>
@@ -142,7 +143,6 @@
         <option value="$PROJECT_DIR$/client/js/actions/actions.es6.js" />
         <option value="$PROJECT_DIR$/client/js/reducers/reducer.es6.js" />
         <option value="$PROJECT_DIR$/client/js/containers/App.es6.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/server/config.json" />
         <option value="$PROJECT_DIR$/client/js/Realtime.es6.js" />
@@ -151,6 +151,7 @@
         <option value="$PROJECT_DIR$/server/clarifai.js" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -487,18 +488,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.037037">
-          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/js/containers/App.es6.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+          <caret line="89" column="38" selection-start-line="89" selection-start-column="38" selection-end-line="89" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -513,8 +506,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3371758">
+        <state vertical-scroll-proportion="0.0">
           <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="67" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24287856">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
