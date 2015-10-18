@@ -1,4 +1,4 @@
-import { ADD_POST, SET_POSTS, TOGGLE_LOADING } from '../constants/constants'
+import { ADD_POST, SET_POSTS, TOGGLE_LOADING, OPEN_POST, CLOSE_POST } from '../constants/constants'
 import Immutable from 'immutable'
 
 //beginning state of app
@@ -11,7 +11,8 @@ let post = {
 }
 let initialState = Immutable.Map({
     posts: Immutable.List([post, post, post, post]),
-    loading: false
+    loading: false,
+    openPost: -1
 });
 
 export default function app(state = initialState, action) {
@@ -28,6 +29,12 @@ export default function app(state = initialState, action) {
             return state.update('loading', (loading) => {
                 return !loading;
             });
+
+        case OPEN_POST:
+            return state.set('openPost', action.index)
+
+        case CLOSE_POST:
+            return state.set('openPost', -1);
 
         default:
             return state;

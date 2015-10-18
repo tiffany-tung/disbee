@@ -66,12 +66,22 @@ class App extends Component {
         const boundActions = bindActionCreators(actions, dispatch);
 
         let gridNodes = this.createImageNodes();
+
+        let openPost = this.props.openPost != -1 ?
+            <Overlay onClick={() => {
+                    boundActions.closePost()
+                }
+            }>
+            </Overlay>
+            : null;
         
         return (    
         <div>
             <Paper style={paperStyle}>
                 <h2>The fuck is that?</h2>
             </Paper>
+
+            {openPost}
             
             <GridList cols={this.state.isMobile ? 1 : 3} cellHeight={400} >
                 {gridNodes}
