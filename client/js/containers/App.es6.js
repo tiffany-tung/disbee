@@ -67,13 +67,13 @@ class App extends Component {
 
         let gridNodes = this.createImageNodes();
 
-        let openPost = this.props.openPost != -1 ?
-            <Overlay onClick={() => {
-                    boundActions.closePost()
-                }
-            }>
-            </Overlay>
-            : null;
+        //let openPost = this.props.openPost != -1 ?
+        //    <Overlay onClick={() => {
+        //            boundActions.closePost()
+        //        }
+        //    }>
+        //    </Overlay>
+        //    : null;
         
         return (    
         <div>
@@ -81,8 +81,7 @@ class App extends Component {
                 <h2>The fuck is that?</h2>
             </Paper>
 
-            {openPost}
-            
+
             <GridList cols={this.state.isMobile ? 1 : 3} cellHeight={400} >
                 {gridNodes}
             </GridList>

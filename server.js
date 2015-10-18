@@ -37,6 +37,7 @@ myRouter
     .get('/api', function *(next) {
         this.body = yield eventService.getPosts();
     })
+
     .post('/api/post', myBodyParser, function *(next) {
         let body = this.request.body;
         let tags;
@@ -45,27 +46,34 @@ myRouter
             .get(`https://api.clarifai.com/v1/tag/?url=${body.url}&access_token=swsia18bGbnWjUYYlSrMOD1jjaNMLu`)
             .end((err, res) => {
                 tags = res.body.results[0].result.tag.classes;
-                eventService.addPost(body.caption, tags, body.url, body.user);
+                eventService.addPost(body.caption, tags, body.url, body.user, res.body.results[0].docid_str);
             })
         this.status = 200;
         this.body = "it posted"
     })
 
     .put('/api/post/:id', myBodyParser, function *(next) {
-        //let body = this.request.body;
-        //
-        //this.params.id
-        //this.status = 200;
-        //this.body = "it updated"
-        //
-        //request
-        //    .post(`https://api.clarifai.com/v1/tag/?url=${body.url}&access_token=swsia18bGbnWjUYYlSrMOD1jjaNMLu`)
-        //    .end((err, res) => {
-        //        tags = res.body.results[0].result.tag.classes;
-        //        eventService.addPost(body.caption, tags, body.url, body.user);
-        //    })
-        //
-        //eventService.updatePost(this.params.id, body.comments, body.tags);
+        let body = this.request.body;
+        let id  = this.params.id;
+
+        let post = yield eventService.getPost(id);
+        let tags;
+
+        request
+            .get(`https://api.clarifai.com/v1/feedback/?docids=${post.doc_id}&access_token=swsia18bGbnWjUYYlSrMOD1jjaNMLu&add_tags=${body.suggestion}`)
+            .end((err, res) => {
+                request
+                    .get(`https://api.clarifai.com/v1/tag/?url=${post.url}&access_token=swsia18bGbnWjUYYlSrMOD1jjaNMLu`)
+                    .end((err2, res2) => {
+                        console.log(post);
+                        post.comments.push({user: body.user, suggestion: body.suggestion})
+                        tags = res2.body.results[0].result.tag.classes;
+                        eventService.updatePost(id, post.comments, tags);
+                    })
+            })
+
+        this.status = 200;
+        this.body = "it updated"
     })
 
 app

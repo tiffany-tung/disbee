@@ -1,26 +1,37 @@
-import React from 'react'
 import ReactDOM from 'react-dom';
 import request from 'superagent';
 import Post from './post.es6.js';
-import Root from './containers/Root'
 import setUpRealtime from './Realtime.es6.js'
 
-//ReactDOM.render(<Root />, document.getElementById('container'));
+import React, { Component, PropTypes } from 'react'
 
-request
-    .post('/api/post')
-    .send({ user: 'Manny', url: 'https://www.petfinder.com/wp-content/uploads/2012/11/140272627-grooming-needs-senior-cat-632x475.jpg',
-    caption: "wat dis"})
-    .end((err, res) => {
-        console.log(res);
-    });
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import { compose, createStore, applyMiddleware } from 'redux';
+import { devTools, persistState } from 'redux-devtools';
+import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
+import App from './containers/App'
+import Reducer from './reducers/reducer'
+import * as actions from './actions/actions'
 
-let injectTapEventPlugin = require("react-tap-event-plugin");
+const finalCreateStore = compose(
+    applyMiddleware(thunk)
+    //devTools()
+)(createStore);
 
+const store = finalCreateStore(Reducer);
 
-injectTapEventPlugin();
+export default class Root extends Component {
+    render() {
+        return (
+            <Provider store={store}>
+                <App />
+            </Provider>
+        )
+    }
+}
 
 ReactDOM.render(<Root />, document.getElementById('container'));
 
-setUpRealtime();
+setUpRealtime(store, actions);

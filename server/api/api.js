@@ -14,7 +14,7 @@ export function liveUpdates(io) {
         .changes().run(conn, (err, cursor) => {
             console.log('Listening for changes...')
             cursor.each((err, change) => {
-                console.log('Change detected', change)
+                //console.log('Change detected', change)
                 if(change.old_val){
                     io.emit('updated-post', change)
                 } else {
@@ -25,6 +25,14 @@ export function liveUpdates(io) {
     })
 }
 
+export function getPost(id) {
+    return connect()
+        .then((conn) => {
+            return r
+                .table('posts').get(id).run(conn)
+        })
+}
+
 export function getPosts() {
     return connect()
         .then((conn) => {
@@ -33,7 +41,7 @@ export function getPosts() {
         })
 }
 
-export function addPost(caption, tags, url, user) {
+export function addPost(caption, tags, url, user, doc_id) {
     return connect()
         .then((conn) => {
              r
@@ -42,7 +50,8 @@ export function addPost(caption, tags, url, user) {
                     user,
                     caption,
                     tags,
-                     comments: []
+                     doc_id,
+                     comments: [],
                 }]).run(conn)
         })
 }
