@@ -54,5 +54,9 @@
     "redux-devtools": "2.1.5",
     "webpack": "^1.9.11",
     "webpack-hot-middleware": "^2.4.1"
+  },
+  "scripts": {
+  	"start": "server"
   }
+  
 }
