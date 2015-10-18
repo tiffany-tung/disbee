@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import Immutable from 'immutable'
 import * as MUI from 'material-ui'
 import Image from '../image.es6.js';
+import Overlay from '../overlay.es6.js';
 
 const RaisedButton = MUI.RaisedButton
 const Paper = MUI.Paper;
@@ -40,16 +41,20 @@ class App extends Component {
     }
 
     handleOnClick(result, counter) {
-        ReactDOM.render(<Post {...result} count={counter} />, document.getElementById('modal'))
+        console.log("??")
+        const { dispatch, ...other } = this.props;
+        const boundActions = bindActionCreators(actions, dispatch);
+        //ReactDOM.render(<Post {...result} count={counter} />, document.getElementById('modal'))
+        boundActions.openPost(counter);
     }
 
     // Get all the current posts and render images based off of them
     createImageNodes() {
-        let counter = 0;
-        let things = this.props.post.map((result) => {
-            counter++;
-            return (<GridTile onClick={() => this.handleOnClick(result, counter)} 
-                        key={counter}
+
+        let things = this.props.post.map((result, index) => {
+            //counter++;
+            return (<GridTile onClick={() => this.handleOnClick(result, index)} 
+                        key={index}
                         title={result.caption + " - " + result.user} 
                         subtitle={"Top tag: " + result.tags[0] + " | Comments: " + result.comments.length}>
                         <Image src={result.image_url} />
@@ -61,19 +66,21 @@ class App extends Component {
     }
 
     render() {
+        console.log(this.props)
         const { dispatch, ...other } = this.props;
 
         const boundActions = bindActionCreators(actions, dispatch);
 
         let gridNodes = this.createImageNodes();
 
-        //let openPost = this.props.openPost != -1 ?
-        //    <Overlay onClick={() => {
-        //            boundActions.closePost()
-        //        }
-        //    }>
-        //    </Overlay>
-        //    : null;
+
+        let openPost = this.props.openPost != -1 ?
+            <Overlay onClick={() => {
+                    boundActions.closePost()
+                }
+            }>
+            </Overlay>
+            : null;
         
         return (    
         <div>
@@ -96,7 +103,8 @@ App.propTypes = {};
 function mapStateToProps(state) {
     return {
         post    : state.get('posts').toJS(),
-        loading : state.get('loading')
+        loading : state.get('loading'),
+        openPost: state.get('openPost')
     };
 }
 
