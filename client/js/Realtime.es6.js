@@ -3,9 +3,16 @@ import socketClient from 'socket.io-client';
 export default function setupRealtime(store, actions) {
     const io = socketClient();
 
-    io.on('event-change', (change) => {
+    io.on('new-post', (change) => {
         //update ui
-        console.log('what the hell it worked!?');
+        console.log("new post");
+        console.log(change);
     });
+
+    io.on('updated-post', (change) => {
+        console.log('updated post');
+        console.log(change);
+    });
+
     return io;
 }

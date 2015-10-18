@@ -13,6 +13,7 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.jsx', '.es6.js'],
         alias : {
+            jquery: path.join(__dirname, 'server', 'jquery'),
             react: path.join(__dirname, 'node_modules', 'react'),
             classes: path.join(ROOT_DIR, 'client', 'js', 'classes'),
             components: path.join(ROOT_DIR, 'client', 'js', 'components')

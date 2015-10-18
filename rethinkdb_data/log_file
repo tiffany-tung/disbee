@@ -1,0 +1,16 @@
+2015-10-18T04:23:50.171407000 0.439725s notice: Recursively removing directory /Users/alexngo/Documents/github/uTrav/rethinkdb_data/tmp
+2015-10-18T04:23:50.174731000 0.443058s notice: Initializing directory /Users/alexngo/Documents/github/uTrav/rethinkdb_data
+2015-10-18T04:23:50.174852000 0.443168s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/alexngo/Documents/github/uTrav/rethinkdb_data' did not already exist or is empty.)
+2015-10-18T04:23:50.176647000 0.444965s notice: Running rethinkdb 2.1.5-2 (CLANG 7.0.0 (clang-700.0.72))...
+2015-10-18T04:23:50.183429000 0.451746s notice: Running on Darwin 15.0.0 x86_64
+2015-10-18T04:23:50.183478000 0.451794s notice: Loading data from directory /Users/alexngo/Documents/github/uTrav/rethinkdb_data
+2015-10-18T04:23:50.253149000 0.521465s info: Automatically using cache size of 196 MB
+2015-10-18T04:23:50.253720000 0.522036s notice: Listening for intracluster connections on port 29015
+2015-10-18T04:23:50.259351000 0.527667s notice: Listening for client driver connections on port 28015
+2015-10-18T04:23:50.259483000 0.527799s notice: Listening for administrative HTTP connections on port 8080
+2015-10-18T04:23:50.259487000 0.527803s notice: Listening on addresses: 127.0.0.1, 127.0.0.2, 127.0.0.3, ::1
+2015-10-18T04:23:50.259488000 0.527804s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-10-18T04:23:50.259490000 0.527806s notice: Server ready, "D_108_179_153_110_dhcp4_washington_edu_pz3" 6369d572-78fb-4752-bd59-45897a5ed22c
+2015-10-18T04:25:29.244147000 99.515283s info: Table 3db39ef7-dc5e-4adc-bb76-ba20707ef8d6: Added replica on this server.
+2015-10-18T04:25:30.392005000 100.663188s info: Table 3db39ef7-dc5e-4adc-bb76-ba20707ef8d6: Starting a new Raft election for term 1.
+2015-10-18T04:25:30.403640000 100.674823s info: Table 3db39ef7-dc5e-4adc-bb76-ba20707ef8d6: This server is Raft leader for term 1. Latest log index is 0.
