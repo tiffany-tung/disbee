@@ -1,0 +1,3 @@
+const ADD_POST = 'ADD_POST';
+const SET_POSTS = 'SET_POSTS';
+const TOGGLE_LOADING = 'TOGGLE_LOADING';

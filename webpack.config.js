@@ -15,7 +15,7 @@ module.exports = {
         alias : {
             react: path.join(__dirname, 'node_modules', 'react'),
             classes: path.join(ROOT_DIR, 'client', 'js', 'classes'),
-            components: path.join(ROOT_DIR, 'universal', 'components')
+            components: path.join(ROOT_DIR, 'client', 'js', 'components')
         }
     },
 
